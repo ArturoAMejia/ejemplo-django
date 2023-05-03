@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Aeropuerto</title>
+  </head>
+  <body class="p-32 bg-white">
+    <form action="{% url 'aeropuerto' %}" method="post">
+      {% csrf_token %} 
+      <label for="codigo">Código</label>
+      <input type="text" name="codigo" id="codigo" class="border-2 border-black rounded-md" />
+      <label for="ciudad">Ciudad</label>
+      <input type="text" name="ciudad" id="ciudad"  class="border-2 border-black rounded-md"/>
+      <button type="submit" class="bg-green-400 p-2 rounded-md">Agregar Aeropuerto</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>The last about us</title>
+  </head>
+  <body class="bg-white text-black p-32">
+    <h1 class="text-4xl font-bold">Vuelos</h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum vero
+      quos ipsa exercitationem, autem veritatis!
+    </p>
+
+    <ul>
+      {% for vuelo in vuelos %}
+      <li>
+        <span class="font-bold">Origen: </span>
+        {{ vuelo.origen }}
+      </li>
+      <li>
+        <span class="font-bold">Origen: </span>
+        {{ vuelo.destino }}
+      </li>
+      {% endfor %}
+    </ul>
+    <form action="{% url 'about' %}" method="post" class="text-black mt-8">
+      {% csrf_token %}
+
+      <h2 class="text-2xl text-black">Añadir un vuelo</h2>
+      <label for="origen" class="text-black">Origen</label>
+      <select name="origen" id="" class="p-2">
+        {% for origen in aeropuerto %}
+        <option value="{{origen.codigo}}">{{origen}}</option>
+        {% endfor %}
+      </select>
+      <label for="destino" class="text-black">Destino</label>
+      <select name="destino" id="" class="p-2">
+        {% for destino in aeropuerto %}
+        <option value="{{destino.codigo}}">{{destino}}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="rounded-md bg-green-400 p-2">
+        Añadir Vuelo
+      </button>
+    </form>
+  </body>
+</html>
